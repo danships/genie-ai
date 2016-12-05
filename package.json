@@ -1,0 +1,32 @@
+{
+  "name": "genie-ai",
+  "version": "0.0.2",
+  "description": "A module to process speech as input and send speech as output. Using both stt and tts. Also stt with a wake word/trigger.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matueranet/genie-ai.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stt",
+    "tts",
+    "ai",
+    "artifical",
+    "intelligence",
+    "speech",
+    "text",
+    "nlp",
+    "nlu"
+  ],
+  "author": "matueranet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matueranet/genie-ai/issues"
+  },
+  "homepage": "https://github.com/matueranet/genie-ai",
+  "dependencies": {
+    "sonus": "^0.1.2"
+  }
+}
