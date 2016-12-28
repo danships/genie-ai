@@ -7,54 +7,68 @@ module.exports = {
   removeListener: unsubscribe
 }
 
-var sonus = null,
-  config = null,
-  events;
+var sonus = null
+var config = null
 
+const EventEmitter = require('events').EventEmitter
+const events = new EventEmitter()
+const Promise = require('bluebird')
 const Sonus = require('sonus')
 
-function init(options) {
-  config = options;
+function init (options) {
+  return new Promise(function (resolve, reject) {
+    config = options
 
-  const speech = require('@google-cloud/speech')({
-    projectId: config.stt.google.projectId,
-    keyFilename: config.stt.google.keyFile
+    const speech = require('@google-cloud/speech')({
+      projectId: config.stt.google.projectId,
+      keyFilename: config.stt.google.keyFile
+    })
+
+    const hotwords = config.stt.hotwords
+    sonus = Sonus.init({hotwords}, speech)
+    resolve()
   })
-
-  const hotwords = config.stt.hotwords;
-  sonus = Sonus.init({hotwords}, speech)
 }
 
 /**
  * @param object options
  * @return void
 */
-function start() {
-  var EventEmitter = require("events").EventEmitter
-  events = new EventEmitter();
-
-  startSonus();
+function start () {
+  return new Promise(function (resolve, reject) {
+    startSonus()
+    resolve()
+  })
 }
 
-function subscribe(eventName, callback) {
-  if (!events) {
-    throw new Error('genie-ai was not started yet!')
-  }
-  events.on(eventName, callback)
+function subscribe (eventName, callback) {
+  return new Promise(function (resolve, reject) {
+    if (!events) {
+      reject(new Error('genie-ai was not started yet!'))
+    }
+    events.on(eventName, callback)
+    resolve()
+  })
 }
 
-function unsubscribe(eventName, callback) {
-  if (!events) {
-    throw new Error('genie-ai was not started yet!')
-  }
-  events.removeListener(eventName, callback)
+function unsubscribe (eventName, callback) {
+  return new Promise(function (resolve, reject) {
+    if (!events) {
+      reject(new Error('genie-ai was not started yet!'))
+    }
+    events.removeListener(eventName, callback)
+    resolve()
+  })
 }
 
-function stop() {
-  Sonus.stop(sonus)
+function stop () {
+  return new Promise(function (resolve, reject) {
+    Sonus.stop(sonus)
+    resolve()
+  })
 }
 
-function startSonus() {
+function startSonus () {
   Sonus.start(sonus)
   sonus.on('hotword', (index, keyword) => events.emit('hotword', keyword))
   sonus.on('final-result', (transcript) => events.emit('transcribe', transcript))
