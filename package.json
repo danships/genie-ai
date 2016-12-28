@@ -7,7 +7,7 @@
     "url": "git+https://github.com/matueranet/genie-ai.git"
   },
   "scripts": {
-    "test": "eslint ."
+    "test": "standard"
   },
   "keywords": [
     "stt",
@@ -27,16 +27,10 @@
   },
   "homepage": "https://github.com/matueranet/genie-ai",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "sonus": "^0.1.2"
   },
   "devDependencies": {
-    "eslint": "^3.11.1",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-react": "^6.8.0",
-    "eslint-plugin-standard": "^2.0.1"
+    "standard": "^8.6.0"
   }
 }
