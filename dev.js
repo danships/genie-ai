@@ -13,6 +13,10 @@ try {
         console.log('hotword ' + hotword)
       })
     })
+    .then(function () {
+      console.log('Saying hello')
+      genie.speak('hello')
+    })
   genie.on('transcribe', function (transcript) {
     console.log('I heard: ' + transcript)
   })

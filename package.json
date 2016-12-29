@@ -28,6 +28,7 @@
   "homepage": "https://github.com/matueranet/genie-ai",
   "dependencies": {
     "bluebird": "^3.4.6",
+    "promisified-espeak": "^1.0.0",
     "sonus": "^0.1.2"
   },
   "devDependencies": {
