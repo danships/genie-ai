@@ -1,6 +1,8 @@
 genie-ai
 =================
 
+[![Build Status](https://travis-ci.org/matueranet/genie-ai.svg?branch=develop)](https://travis-ci.org/matueranet/genie-ai)
+
 A module to easily use stt and tts in a project. Features stt triggering via a wake word.
 
 This module currently is an empty shell. I will work on it in the coming weeks. The stt part
