@@ -17,6 +17,9 @@ try {
       console.log('Saying hello')
       genie.speak('hello')
     })
+    .catch(function (err) {
+      console.error('Something went wrong:', err)
+    })
   genie.on('transcribe', function (transcript) {
     console.log('I heard: ' + transcript)
   })

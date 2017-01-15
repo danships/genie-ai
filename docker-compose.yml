@@ -1,0 +1,11 @@
+genie-ai:
+  build: .
+  # running privileged is required to access speakers and microphone of the host
+  privileged: true
+  command: node_modules/.bin/nodemon dev.js
+  environment:
+    GOOGLE_PROJECT_ID: genie-ai
+    GOOGLE_KEYFILE: ./googlekey.json
+  volumes:
+    - .:/home/app
+    - /home/app/node_modules

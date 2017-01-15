@@ -32,6 +32,7 @@
     "sonus": "^0.1.2"
   },
   "devDependencies": {
-    "standard": "^8.6.0"
+    "standard": "^8.6.0",
+    "nodemon": "1.11.0"
   }
 }
